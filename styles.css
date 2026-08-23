@@ -109,8 +109,13 @@ a {
   text-decoration: none;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
   color: var(--ink);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--lamp);
 }
 
 .edition {
@@ -435,6 +440,37 @@ input[type="search"] {
   border-color: var(--warn);
   color: var(--warn);
 }
+
+.chip.local {
+  border-color: #c45a52;
+  color: #f0c2bd;
+}
+
+.chip.national {
+  border-color: #5a7cb0;
+  color: #c5d4ee;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+  margin: 0 0 0.6rem;
+}
+
+.chart-legend i {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.3rem;
+  vertical-align: -0.05rem;
+}
+
+.chart-legend .swatch-local { background: #9e2b22; }
+.chart-legend .swatch-national { background: #1d3d73; }
+.chart-legend .swatch-compound { background: #c47a22; }
+.chart-legend .swatch-book { background: #1d3d73; }
 
 .method-grid {
   display: grid;

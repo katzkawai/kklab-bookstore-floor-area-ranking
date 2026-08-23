@@ -1,0 +1,731 @@
+{
+  "updated": "2026-08-24",
+  "tsubo_m2": 3.305785,
+  "scope": "tokai",
+  "note": "愛知・岐阜・三重・静岡の大型店。地方書店（精文館・三洋堂・谷島屋・いまじん・草叢）と全国チェーンを併記。1坪=3.305785㎡。",
+  "stores": [
+    {
+      "id": "seibunkan-toyohashi",
+      "name": "精文館書店 本店",
+      "chain": "精文館",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "豊橋市",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 4950,
+      "books_m2": 4950,
+      "stock": null,
+      "floors": null,
+      "opened": "1923（2004年増床）",
+      "note": "豊橋市広小路の地方チェーン旗艦店。Wikipediaは2004年増床後4,950㎡（約1,500坪）。東海最大級。",
+      "sources": [
+        { "label": "Wikipedia「精文館書店」", "url": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E6%96%87%E9%A4%A8%E6%9B%B8%E5%BA%97" }
+      ]
+    },
+    {
+      "id": "nagoya-maruzen",
+      "name": "丸善 名古屋本店",
+      "chain": "丸善",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市中区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 4873,
+      "books_m2": 4873,
+      "stock": 1200000,
+      "floors": "B1–7F",
+      "opened": "2015",
+      "note": "栄の旗艦店。約1,474坪・約120万冊。",
+      "sources": [
+        { "label": "日本最大の書店は何処？2022年版", "url": "https://note.com/zshiki/n/nec43473e7978" }
+      ]
+    },
+    {
+      "id": "seibunkan-ichinomiya",
+      "name": "精文館書店 尾張一宮店",
+      "chain": "精文館",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "一宮市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 3504,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外複合店",
+      "opened": "2013",
+      "note": "開店時の売場1,060坪。TSUTAYA併設の大型複合店。",
+      "sources": [
+        { "label": "ITmedia 開店報道（1,060坪）", "url": "https://www.itmedia.co.jp/ebook/articles/1311/25/news062.html" }
+      ]
+    },
+    {
+      "id": "sanseido-nagoya",
+      "name": "三省堂書店 名古屋本店",
+      "chain": "三省堂",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市中村区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 3306,
+      "books_m2": 3306,
+      "stock": 800000,
+      "floors": "タカシマヤ ゲートタワーモール8F",
+      "opened": "2019",
+      "note": "名古屋駅直結。約1,000坪・約80万冊。",
+      "sources": [
+        { "label": "日本最大の書店は何処？2022年版", "url": "https://note.com/zshiki/n/nec43473e7978" }
+      ]
+    },
+    {
+      "id": "minato-tsutaya",
+      "name": "名古屋みなと 蔦屋書店",
+      "chain": "蔦屋書店",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市港区",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 3306,
+      "books_m2": 3306,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "約1,000坪。ライフスタイル提案型。",
+      "sources": [
+        { "label": "名古屋の大型書店ランキング", "url": "https://www.mnavi.net/bookstores-in-nagoya/" }
+      ]
+    },
+    {
+      "id": "kusamura-kakamigahara",
+      "name": "草叢BOOKS 各務原店",
+      "chain": "草叢BOOKS",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "各務原市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 3300,
+      "books_m2": null,
+      "stock": null,
+      "floors": "アピタ各務原1F",
+      "opened": "2017",
+      "note": "新刊・中古・雑貨・カフェの複合店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "imajin-kasugai",
+      "name": "TSUTAYA いまじん白揚 春日井店",
+      "chain": "いまじん",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "春日井市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 2677,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "愛知のいまじんが運営する大型複合店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 東海ランキング", "url": "https://japan-wanderer.com/bookstore-tokai/" }
+      ]
+    },
+    {
+      "id": "sanyodo-shinkaibashi",
+      "name": "三洋堂書店 新開橋店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "名古屋市瑞穂区",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 2645,
+      "books_m2": null,
+      "stock": null,
+      "floors": "2F",
+      "opened": null,
+      "note": "約800坪。書籍に加えCD・DVD・トレカを含む郊外型。名古屋地盤の三洋堂。",
+      "sources": [
+        { "label": "店舗情報局（約800坪）", "url": "https://store-shop-info.com/2021-0502-164555/" }
+      ]
+    },
+    {
+      "id": "kino-airport",
+      "name": "紀伊國屋書店 名古屋空港店",
+      "chain": "紀伊國屋",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "西春日井郡豊山町",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 2479,
+      "books_m2": 2479,
+      "stock": null,
+      "floors": "エアポートウォーク名古屋",
+      "opened": null,
+      "note": "約750坪。",
+      "sources": [
+        { "label": "名古屋の大型書店ランキング", "url": "https://www.mnavi.net/bookstores-in-nagoya/" }
+      ]
+    },
+    {
+      "id": "maruzen-gifu",
+      "name": "丸善 岐阜店",
+      "chain": "丸善",
+      "origin": "national",
+      "prefecture": "岐阜県",
+      "city": "岐阜市",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 2149,
+      "books_m2": 2149,
+      "stock": 750000,
+      "floors": "マーサ21 東館3F",
+      "opened": "2015（2021年増床）",
+      "note": "2021年リニューアルで約650坪・約75万冊。岐阜県下最大級の書籍売場。",
+      "sources": [
+        { "label": "マーサ21 リニューアル告知", "url": "https://www.masa21.co.jp/project/2-20211029.html" }
+      ]
+    },
+    {
+      "id": "tsutaya-noritake",
+      "name": "TSUTAYA BOOKSTORE 則武新町",
+      "chain": "TSUTAYA",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市西区",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 2472,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "カフェ併設。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 東海ランキング", "url": "https://japan-wanderer.com/bookstore-tokai/" }
+      ]
+    },
+    {
+      "id": "mj-shinshizuoka",
+      "name": "MARUZEN＆ジュンク堂書店 新静岡店",
+      "chain": "丸善ジュンク堂",
+      "origin": "national",
+      "prefecture": "静岡県",
+      "city": "静岡市葵区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 2231,
+      "books_m2": 2231,
+      "stock": 500000,
+      "floors": "新静岡セノバ5F",
+      "opened": "2011",
+      "note": "約675坪・約50万冊。静岡鉄道新静岡駅直結。県内随一の書籍売場。",
+      "sources": [
+        { "label": "ジモエル（675坪）", "url": "https://jimoto-yell.com/special/shizuokacity-book-store/" },
+        { "label": "honto 店舗情報", "url": "https://honto.jp/store/detail_1570070_14HB320.html" }
+      ]
+    },
+    {
+      "id": "seibunkan-gamagori",
+      "name": "精文館書店 蒲郡三谷店",
+      "chain": "精文館",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "蒲郡市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 2148,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外型",
+      "opened": null,
+      "note": "東三河の郊外大型店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "yajima-hamamatsu",
+      "name": "谷島屋 浜松本店",
+      "chain": "谷島屋",
+      "origin": "local",
+      "prefecture": "静岡県",
+      "city": "浜松市",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 1983,
+      "books_m2": 1983,
+      "stock": 450000,
+      "floors": "駅ビル1F",
+      "opened": null,
+      "note": "約600坪・約45万冊。浜松地盤の地方書店。",
+      "sources": [
+        { "label": "店舗情報局（600坪）", "url": "https://book-store-info.com/2019-03-22-194921/" }
+      ]
+    },
+    {
+      "id": "miyawaki-yokkaichi",
+      "name": "宮脇書店 ララスクエア四日市店",
+      "chain": "宮脇書店",
+      "origin": "national",
+      "prefecture": "三重県",
+      "city": "四日市市",
+      "region": "近畿",
+      "type": "bookstore",
+      "store_m2": 1983,
+      "books_m2": 1983,
+      "stock": null,
+      "floors": "ララスクエア四日市4F",
+      "opened": null,
+      "note": "約600坪。近鉄四日市駅徒歩圏。",
+      "sources": [
+        { "label": "三重の本屋まとめ（約600坪）", "url": "https://vokka.jp/15574/" }
+      ]
+    },
+    {
+      "id": "seibunkan-toyoake",
+      "name": "精文館書店 豊明店",
+      "chain": "精文館",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "豊明市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1983,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "TSUTAYAと共用の郊外店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "junkudo-sakae",
+      "name": "ジュンク堂書店 名古屋栄店",
+      "chain": "ジュンク堂",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市中区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 1983,
+      "books_m2": 1983,
+      "stock": 600000,
+      "floors": "明治安田生命名古屋ビル B2–B1",
+      "opened": "2016",
+      "note": "約600坪。ロフト名古屋店（閉店）とは別店舗。",
+      "sources": [
+        { "label": "名古屋の大型書店ランキング", "url": "https://www.mnavi.net/bookstores-in-nagoya/" }
+      ]
+    },
+    {
+      "id": "sanyodo-otagawa",
+      "name": "三洋堂書店 乙川店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "半田市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1810,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外型",
+      "opened": null,
+      "note": "知多の地域密着店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "sanyodo-toriimatsu",
+      "name": "三洋堂書店 鳥居松店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "春日井市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1783,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "カフェ併設。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "sanyodo-irinaka",
+      "name": "三洋堂書店 いりなか店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "名古屋市昭和区",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1658,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "名古屋市内の大型三洋堂。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "yajima-ryutsu",
+      "name": "谷島屋 流通通り店",
+      "chain": "谷島屋",
+      "origin": "local",
+      "prefecture": "静岡県",
+      "city": "静岡市葵区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 1653,
+      "books_m2": 1653,
+      "stock": 330000,
+      "floors": "郊外1F",
+      "opened": null,
+      "note": "約500坪・約33万冊。静清バイパス南の郊外大型店。",
+      "sources": [
+        { "label": "ローカログ（約500坪）", "url": "https://local-media.heteml.net/archives/49144" }
+      ]
+    },
+    {
+      "id": "yajima-iwata",
+      "name": "谷島屋 ららぽーと磐田店",
+      "chain": "谷島屋",
+      "origin": "local",
+      "prefecture": "静岡県",
+      "city": "磐田市",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 1653,
+      "books_m2": 1653,
+      "stock": null,
+      "floors": "ららぽーと磐田",
+      "opened": null,
+      "note": "モール内の地方書店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 東海ランキング", "url": "https://japan-wanderer.com/bookstore-tokai/" }
+      ]
+    },
+    {
+      "id": "maruzen-yokkaichi",
+      "name": "丸善 四日市店",
+      "chain": "丸善",
+      "origin": "national",
+      "prefecture": "三重県",
+      "city": "四日市市",
+      "region": "近畿",
+      "type": "bookstore",
+      "store_m2": 1653,
+      "books_m2": 1653,
+      "stock": null,
+      "floors": "近鉄百貨店四日市 B1",
+      "opened": null,
+      "note": "約500坪。近鉄四日市駅直結。",
+      "sources": [
+        { "label": "三重の本屋まとめ（約500坪）", "url": "https://vokka.jp/15574/" }
+      ]
+    },
+    {
+      "id": "sanyodo-kuwana",
+      "name": "三洋堂書店 桑名店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "三重県",
+      "city": "桑名市",
+      "region": "近畿",
+      "type": "compound",
+      "store_m2": 1620,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外型",
+      "opened": null,
+      "note": "三重の大型三洋堂。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 東海ランキング", "url": "https://japan-wanderer.com/bookstore-tokai/" }
+      ]
+    },
+    {
+      "id": "sanyodo-shimoedo",
+      "name": "三洋堂書店 下恵土店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "可児市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1640,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外型",
+      "opened": null,
+      "note": "可児の大型店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "tsutaya-togo",
+      "name": "TSUTAYA BOOKSTORE ららぽーと愛知東郷",
+      "chain": "TSUTAYA",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "愛知郡東郷町",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1544,
+      "books_m2": null,
+      "stock": null,
+      "floors": "ららぽーと愛知東郷",
+      "opened": null,
+      "note": "カフェ併設。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "sanyodo-shinsek",
+      "name": "三洋堂書店 新関店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "関市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1488,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "関市の郊外店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "sanyodo-nagara",
+      "name": "三洋堂書店 長良店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "岐阜市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1431,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "岐阜市内の大型三洋堂。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "sanyodo-minokamo",
+      "name": "三洋堂書店 みのかも店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "美濃加茂市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1427,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "美濃加茂の郊外店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "yajima-shitoro",
+      "name": "谷島屋 イオンモール浜松志都呂店",
+      "chain": "谷島屋",
+      "origin": "local",
+      "prefecture": "静岡県",
+      "city": "浜松市",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 1421,
+      "books_m2": 1421,
+      "stock": null,
+      "floors": "イオンモール浜松志都呂",
+      "opened": null,
+      "note": "モール内。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 東海ランキング", "url": "https://japan-wanderer.com/bookstore-tokai/" }
+      ]
+    },
+    {
+      "id": "tsutaya-shizuoka",
+      "name": "TSUTAYA BOOKSTORE 静岡",
+      "chain": "TSUTAYA",
+      "origin": "national",
+      "prefecture": "静岡県",
+      "city": "静岡市葵区",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1411,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "都市型。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 東海ランキング", "url": "https://japan-wanderer.com/bookstore-tokai/" }
+      ]
+    },
+    {
+      "id": "kino-mozo",
+      "name": "紀伊國屋書店 mozoワンダーシティ店",
+      "chain": "紀伊國屋",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市西区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 1397,
+      "books_m2": 1397,
+      "stock": null,
+      "floors": "mozoワンダーシティ",
+      "opened": null,
+      "note": "モール内。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "sanyodo-sekihigashi",
+      "name": "三洋堂書店 せき東店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "関市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1369,
+      "books_m2": null,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "note": "関市東部。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "sanyodo-yomogi",
+      "name": "三洋堂書店 よもぎ店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "愛知県",
+      "city": "稲沢市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1283,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外型",
+      "opened": null,
+      "note": "稲沢の郊外店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 愛知ランキング", "url": "https://japan-wanderer.com/bookstore-aichi/" }
+      ]
+    },
+    {
+      "id": "sanyodo-yoro",
+      "name": "三洋堂書店 養老店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "養老町",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1274,
+      "books_m2": null,
+      "stock": null,
+      "floors": "郊外型",
+      "opened": null,
+      "note": "養老のファミリー向け店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "sanyodo-ogaki",
+      "name": "三洋堂書店 大垣バロー店",
+      "chain": "三洋堂",
+      "origin": "local",
+      "prefecture": "岐阜県",
+      "city": "大垣市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1094,
+      "books_m2": null,
+      "stock": null,
+      "floors": "バロー内",
+      "opened": null,
+      "note": "SC内。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "tsutaya-malera",
+      "name": "TSUTAYA BOOKSTORE モレラ岐阜",
+      "chain": "TSUTAYA",
+      "origin": "national",
+      "prefecture": "岐阜県",
+      "city": "本巣市",
+      "region": "中部",
+      "type": "compound",
+      "store_m2": 1058,
+      "books_m2": null,
+      "stock": null,
+      "floors": "モレラ岐阜",
+      "opened": null,
+      "note": "モール内。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 岐阜ランキング", "url": "https://japan-wanderer.com/bookstore-gifu/" }
+      ]
+    },
+    {
+      "id": "junkudo-nagoya",
+      "name": "ジュンク堂書店 名古屋店",
+      "chain": "ジュンク堂",
+      "origin": "national",
+      "prefecture": "愛知県",
+      "city": "名古屋市中村区",
+      "region": "中部",
+      "type": "bookstore",
+      "store_m2": 992,
+      "books_m2": 992,
+      "stock": null,
+      "floors": "堀内ビル1F",
+      "opened": null,
+      "note": "名駅徒歩圏。honto掲載の売場は約300坪。",
+      "sources": [
+        { "label": "honto 店舗情報（300坪）", "url": "https://honto.jp/store/detail_1570031_14HB320.html" }
+      ]
+    }
+  ]
+}

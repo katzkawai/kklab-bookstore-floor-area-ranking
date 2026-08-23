@@ -7,6 +7,11 @@
 
 複合店の総売場と、書籍コーナーだけの面積では順位が変わります。初期表示は総売場、切り替えで書籍売場（内訳が分かる店）を表示します。
 
+愛知・岐阜・三重・静岡は、地方書店を含めた別ページがあります。
+
+- 全国: <https://katzkawai.org/kklab-bookstore-floor-area-ranking/>
+- 東海4県: <https://katzkawai.org/kklab-bookstore-floor-area-ranking/tokai.html>
+
 ## ローカルで見る
 
 ビルドは不要です。リポジトリのルートで HTTP サーバーを起動してください。
@@ -21,10 +26,12 @@ python3 -m http.server 8000
 
 ```text
 .
-├── index.html              # ページ本体
+├── index.html              # 全国ランキング
+├── tokai.html              # 東海4県（地方書店を含む）
 ├── styles.css
 ├── app.js                  # フィルタ・Chart.js・背表紙表示
-├── data/bookstores.json    # 店舗データと出典
+├── data/bookstores.json    # 全国データ
+├── data/tokai.json         # 愛知・岐阜・三重・静岡
 └── .github/workflows/
     └── deploy-pages.yml    # GitHub Pages への自動公開
 ```

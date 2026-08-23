@@ -1,4 +1,14 @@
 const TSUBO = 3.305785;
+const PAGE = Object.assign(
+  {
+    dataUrl: "./data/bookstores.json",
+    regionKey: "region",
+    regions: null,
+    showOrigin: false,
+    colorBy: "type",
+  },
+  window.LEDGER_PAGE || {}
+);
 const SPINE_CLASS = ["spine-0", "spine-1", "spine-2", "spine-3", "spine-4"];
 const CAVEAT_LABEL = {
   reduced: "フロア縮小",
@@ -6,6 +16,7 @@ const CAVEAT_LABEL = {
   relocated: "移転後",
 };
 const TYPE_LABEL = { bookstore: "書店中心", compound: "複合店" };
+const ORIGIN_LABEL = { local: "地方書店", national: "全国チェーン" };
 
 const state = {
   data: null,
@@ -13,6 +24,7 @@ const state = {
   region: "all",
   chain: "all",
   type: "all",
+  origin: "all",
   search: "",
 };
 
@@ -42,7 +54,11 @@ function shortName(name) {
     .replace("ブックセンタークエスト", "クエスト")
     .replace("ハイパーブックス", "ハイパー")
     .replace("コーチャンフォー", "コーチャン")
-    .replace("蔦屋書店", "蔦屋");
+    .replace("蔦屋書店", "蔦屋")
+    .replace("精文館書店", "精文館")
+    .replace("三洋堂書店", "三洋堂")
+    .replace("TSUTAYA BOOKSTORE", "TSUTAYA")
+    .replace("草叢BOOKS", "草叢");
 }
 
 function filteredRows() {
@@ -50,9 +66,10 @@ function filteredRows() {
   return state.data.stores
     .filter((store) => {
       if (valueOf(store) == null) return false;
-      if (state.region !== "all" && store.region !== state.region) return false;
+      if (state.region !== "all" && store[PAGE.regionKey] !== state.region) return false;
       if (state.chain !== "all" && store.chain !== state.chain) return false;
       if (state.type !== "all" && store.type !== state.type) return false;
+      if (state.origin !== "all" && store.origin !== state.origin) return false;
       if (q) {
         const hay = [store.name, store.city, store.prefecture, store.chain].join(" ").toLowerCase();
         if (!hay.includes(q)) return false;
@@ -72,6 +89,14 @@ function fillChainFilter() {
   select.innerHTML = `<option value="all">すべて</option>` +
     uniqueChains(state.data.stores).map((c) => `<option value="${c}">${c}</option>`).join("");
   select.value = [...select.options].some((o) => o.value === current) ? current : "all";
+}
+
+function fillRegionFilter() {
+  if (!PAGE.regions) return;
+  const select = document.getElementById("region-filter");
+  select.innerHTML =
+    `<option value="all">すべて</option>` +
+    PAGE.regions.map((r) => `<option value="${r}">${r}</option>`).join("");
 }
 
 function renderHeroStats(rows) {
@@ -120,7 +145,12 @@ function renderRankChart(rows) {
   document.getElementById("chart-sub").textContent =
     rows.length > chartRows.length ? `（${chartRows.length} / ${rows.length}店）` : `（${chartRows.length}店）`;
   const ctx = document.getElementById("rank-chart");
-  const colors = chartRows.map((s) => (s.type === "compound" ? "rgba(196,122,34,0.85)" : "rgba(29,61,115,0.88)"));
+  const colors = chartRows.map((s) => {
+    if (PAGE.colorBy === "origin") {
+      return s.origin === "local" ? "rgba(158,43,34,0.9)" : "rgba(29,61,115,0.88)";
+    }
+    return s.type === "compound" ? "rgba(196,122,34,0.85)" : "rgba(29,61,115,0.88)";
+  });
   const data = {
     labels: chartRows.map((s) => shortName(s.name)),
     datasets: [
@@ -226,7 +256,9 @@ function renderTable(rows) {
   body.innerHTML = rows
     .map((store, i) => {
       const m2 = valueOf(store);
-      const chips = [`<span class="chip">${TYPE_LABEL[store.type]}</span>`];
+      const chips = [];
+      if (store.origin) chips.push(`<span class="chip ${store.origin}">${ORIGIN_LABEL[store.origin]}</span>`);
+      chips.push(`<span class="chip">${TYPE_LABEL[store.type]}</span>`);
       if (store.caveat) chips.push(`<span class="chip warn">${CAVEAT_LABEL[store.caveat]}</span>`);
       return `<tr id="row-${store.id}">
         <td class="num">${i + 1}</td>
@@ -245,7 +277,7 @@ function openDialog(id) {
   const store = state.data.stores.find((s) => s.id === id);
   if (!store) return;
   const dialog = document.getElementById("store-dialog");
-  document.getElementById("dialog-kicker").textContent = `${store.chain} / ${store.region}`;
+  document.getElementById("dialog-kicker").textContent = `${store.chain} / ${store.prefecture}`;
   document.getElementById("dialog-title").textContent = store.name;
   document.getElementById("dialog-facts").innerHTML = `
     <div><dt>総売場</dt><dd>${areaLabel(store.store_m2)}（${fmtInt.format(toTsubo(store.store_m2))}坪）</dd></div>
@@ -272,7 +304,7 @@ function render() {
   renderHeroStats(rows);
   renderSpines(rows);
   renderRankChart(rows);
-  renderGroupChart("region-chart", "region", rows);
+  renderGroupChart("region-chart", PAGE.regionKey, rows);
   renderGroupChart("chain-chart", "chain", rows);
   renderTable(rows);
 }
@@ -306,6 +338,20 @@ function bind() {
     render();
   });
   document.getElementById("chart-n").addEventListener("change", render);
+  const originSeg = document.getElementById("origin-seg");
+  if (originSeg) {
+    originSeg.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      state.origin = btn.dataset.origin;
+      originSeg.querySelectorAll("button").forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      render();
+    });
+  }
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-id]");
     if (btn) {
@@ -320,7 +366,7 @@ function bind() {
   });
 }
 
-fetch("./data/bookstores.json")
+fetch(PAGE.dataUrl)
   .then((r) => {
     if (!r.ok) throw new Error(r.statusText);
     return r.json();
@@ -328,6 +374,7 @@ fetch("./data/bookstores.json")
   .then((data) => {
     state.data = data;
     chartDefaults();
+    fillRegionFilter();
     fillChainFilter();
     bind();
     render();
