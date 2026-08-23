@@ -266,9 +266,9 @@ h1 em {
 .spine-name {
   writing-mode: vertical-rl;
   font-family: var(--display);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  max-height: 70%;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  max-height: 72%;
   overflow: hidden;
 }
 
@@ -348,6 +348,14 @@ input[type="search"] {
 .chart-heading {
   margin: 0 0 0.6rem;
   font-size: 1rem;
+}
+
+.chart-sub {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+  margin-left: 0.4rem;
 }
 
 #rank-chart-wrap,
@@ -576,6 +584,13 @@ input[type="search"] {
 
   .spine {
     width: 2.55rem;
+  }
+
+  .controls label,
+  select,
+  input[type="search"] {
+    width: 100%;
+    min-width: 0;
   }
 }
 

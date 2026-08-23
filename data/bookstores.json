@@ -513,6 +513,27 @@
       ]
     },
     {
+      "id": "tomizawa-tsutaya",
+      "name": "蔦屋書店 アクロスプラザ富沢西店",
+      "chain": "蔦屋書店",
+      "prefecture": "宮城県",
+      "city": "仙台市太白区",
+      "region": "東北",
+      "type": "compound",
+      "store_m2": 3960,
+      "books_m2": null,
+      "gross_m2": 3960,
+      "stock": null,
+      "floors": null,
+      "opened": null,
+      "status": "open",
+      "caveat": null,
+      "note": "仙台泉店（約3,000坪、閉店）に代わる東北の大型複合店。面積は二次集計。",
+      "sources": [
+        { "label": "JAPAN WANDERER 全国大型店ランキング", "url": "https://japan-wanderer.com/bookstore-japan/" }
+      ]
+    },
+    {
       "id": "hiroshima-maruzen",
       "name": "丸善 広島店",
       "chain": "丸善",

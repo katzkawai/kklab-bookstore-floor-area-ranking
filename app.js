@@ -33,6 +33,18 @@ function areaLabel(m2) {
   return `${fmtInt.format(m2)}㎡`;
 }
 
+function shortName(name) {
+  return name
+    .replace("MARUZEN＆ジュンク堂書店", "丸善ジュンク堂")
+    .replace("ジュンク堂書店", "ジュンク堂")
+    .replace("紀伊國屋書店", "紀伊國屋")
+    .replace("三省堂書店", "三省堂")
+    .replace("ブックセンタークエスト", "クエスト")
+    .replace("ハイパーブックス", "ハイパー")
+    .replace("コーチャンフォー", "コーチャン")
+    .replace("蔦屋書店", "蔦屋");
+}
+
 function filteredRows() {
   const q = state.search.trim().toLowerCase();
   return state.data.stores
@@ -85,10 +97,9 @@ function renderSpines(rows) {
   rail.innerHTML = top
     .map((store, i) => {
       const height = 88 + (valueOf(store) / max) * 210;
-      const short = store.name.replace("書店", "書店\u200b");
-      return `<button type="button" class="spine ${SPINE_CLASS[i % 5]}" style="height:${height}px" data-id="${store.id}" role="listitem">
+      return `<button type="button" class="spine ${SPINE_CLASS[i % 5]}" style="height:${height}px" data-id="${store.id}" role="listitem" aria-label="${store.name}">
         <span class="spine-rank">${String(i + 1).padStart(2, "0")}</span>
-        <span class="spine-name">${short}</span>
+        <span class="spine-name">${shortName(store.name)}</span>
         <span class="spine-area">${fmtInt.format(valueOf(store))}</span>
       </button>`;
     })
@@ -102,19 +113,23 @@ function chartDefaults() {
 }
 
 function renderRankChart(rows) {
+  const n = parseInt(document.getElementById("chart-n").value, 10);
+  const chartRows = n > 0 ? rows.slice(0, n) : rows;
   const wrap = document.getElementById("rank-chart-wrap");
-  wrap.style.height = `${Math.max(280, rows.length * 26 + 48)}px`;
+  wrap.style.height = `${Math.max(280, chartRows.length * 34 + 56)}px`;
+  document.getElementById("chart-sub").textContent =
+    rows.length > chartRows.length ? `（${chartRows.length} / ${rows.length}店）` : `（${chartRows.length}店）`;
   const ctx = document.getElementById("rank-chart");
-  const colors = rows.map((s) => (s.type === "compound" ? "rgba(196,122,34,0.85)" : "rgba(29,61,115,0.88)"));
+  const colors = chartRows.map((s) => (s.type === "compound" ? "rgba(196,122,34,0.85)" : "rgba(29,61,115,0.88)"));
   const data = {
-    labels: rows.map((s) => s.name),
+    labels: chartRows.map((s) => shortName(s.name)),
     datasets: [
       {
         label: state.mode === "books" ? "書籍売場 (㎡)" : "総売場 (㎡)",
-        data: rows.map((s) => valueOf(s)),
+        data: chartRows.map((s) => valueOf(s)),
         backgroundColor: colors,
         borderWidth: 0,
-        barThickness: 16,
+        barThickness: 18,
       },
     ],
   };
@@ -125,8 +140,11 @@ function renderRankChart(rows) {
       legend: { display: false },
       tooltip: {
         callbacks: {
+          title(items) {
+            return chartRows[items[0].dataIndex].name;
+          },
           afterBody(items) {
-            const store = rows[items[0].dataIndex];
+            const store = chartRows[items[0].dataIndex];
             const extra = [];
             if (store.books_m2 && store.store_m2 !== store.books_m2) {
               extra.push(`書籍売場: ${fmtInt.format(store.books_m2)}㎡`);
@@ -144,7 +162,7 @@ function renderRankChart(rows) {
         ticks: { callback: (v) => fmtInt.format(v) },
         title: { display: true, text: "平方メートル" },
       },
-      y: { ticks: { autoSkip: false, font: { size: 11 } } },
+      y: { ticks: { autoSkip: false, font: { size: 12 } } },
     },
   };
   if (charts.rank) {
@@ -287,6 +305,7 @@ function bind() {
     state.search = e.target.value;
     render();
   });
+  document.getElementById("chart-n").addEventListener("change", render);
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-id]");
     if (btn) {

@@ -14,8 +14,8 @@
       content="日本一広い書店は、ものさしで変わる。総売場と書籍売場で見る大型書店ランキング。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://katzkawai.github.io/kklab-bookstore-floor-area-ranking/" />
-    <link rel="canonical" href="https://katzkawai.github.io/kklab-bookstore-floor-area-ranking/" />
+    <meta property="og:url" content="https://katzkawai.org/kklab-bookstore-floor-area-ranking/" />
+    <link rel="canonical" href="https://katzkawai.org/kklab-bookstore-floor-area-ranking/" />
     <title>日本の書店 面積ランキング</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,10 +68,12 @@
 
       <section class="shelf-hero" aria-labelledby="spine-title">
         <div class="section-heading">
-          <p class="section-code">SHELF / 00</p>
-          <h2 id="spine-title">背表紙で見る上位店</h2>
+          <div>
+            <p class="section-code">SHELF / 00</p>
+            <h2 id="spine-title">背表紙で見る上位店</h2>
+          </div>
         </div>
-        <p class="hint">高さは面積に比例します。背表紙をクリックすると表の該当行へ移動します。</p>
+        <p class="hint">高さは面積に比例します。背表紙または店名をクリックすると出典と内訳を表示します。</p>
         <div class="spine-rail" id="spine-rail" role="list"></div>
       </section>
 
@@ -121,12 +123,20 @@
             店名
             <input id="search" type="search" placeholder="池袋、札幌、紀伊國屋…" autocomplete="off" />
           </label>
+          <label>
+            グラフ
+            <select id="chart-n">
+              <option value="15" selected>上位15店</option>
+              <option value="30">上位30店</option>
+              <option value="0">該当すべて</option>
+            </select>
+          </label>
         </div>
 
         <p class="result-line" id="result-line">読み込み中…</p>
 
         <div class="chart-card">
-          <h3 class="chart-heading">横棒グラフ</h3>
+          <h3 class="chart-heading">横棒グラフ <span class="chart-sub" id="chart-sub"></span></h3>
           <div id="rank-chart-wrap"><canvas id="rank-chart"></canvas></div>
         </div>
 

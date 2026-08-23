@@ -2,7 +2,8 @@
 
 日本の大型書店を**売場面積**で比較し、グラフ化したサイトです。
 
-公開URL: <https://katzkawai.github.io/kklab-bookstore-floor-area-ranking/>
+公開URL: <https://katzkawai.org/kklab-bookstore-floor-area-ranking/>
+（<https://katzkawai.github.io/kklab-bookstore-floor-area-ranking/> からも公開されます）
 
 複合店の総売場と、書籍コーナーだけの面積では順位が変わります。初期表示は総売場、切り替えで書籍売場（内訳が分かる店）を表示します。
 
