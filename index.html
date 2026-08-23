@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="日本の大型書店を売場面積で比較するランキング。総売場と書籍売場の2つのものさしでグラフ化。"
+    />
+    <meta name="theme-color" content="#0b1c22" />
+    <meta property="og:title" content="日本の書店 面積ランキング" />
+    <meta
+      property="og:description"
+      content="日本一広い書店は、ものさしで変わる。総売場と書籍売場で見る大型書店ランキング。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://katzkawai.github.io/kklab-bookstore-floor-area-ranking/" />
+    <link rel="canonical" href="https://katzkawai.github.io/kklab-bookstore-floor-area-ranking/" />
+    <title>日本の書店 面積ランキング</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#ranking">ランキングへ移動</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top">
+        <span class="wordmark-mark" aria-hidden="true">冊</span>
+        <span>書店面積<br />台帳</span>
+      </a>
+      <nav class="site-nav" aria-label="ページ内ナビゲーション">
+        <a href="#ranking">ランキング</a>
+        <a href="#charts">グラフ</a>
+        <a href="#method">ものさし</a>
+        <a href="#sources">出典</a>
+      </nav>
+      <p class="edition">KKLAB <b>2026.08</b></p>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="kicker">FLOOR AREA LEDGER / JAPAN BOOKSTORES</p>
+        <h1 id="page-title">日本一広い書店は、<em>ものさし</em>で変わる。</h1>
+        <p class="lede">
+          ビル1棟が本のジュンク堂と、文具・カフェまで含む郊外の複合店では、同じ「面積」でも中身が違います。
+          公表されている総売場と、分かる範囲の書籍売場。2つのものさしで大型店を並べます。
+        </p>
+        <dl class="hero-stats" aria-label="データ概要">
+          <div>
+            <dt>収録</dt>
+            <dd id="stat-count">—</dd>
+          </div>
+          <div>
+            <dt>最大</dt>
+            <dd id="stat-max">—</dd>
+          </div>
+          <div>
+            <dt>ものさし</dt>
+            <dd>総売場 / 書籍</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="shelf-hero" aria-labelledby="spine-title">
+        <div class="section-heading">
+          <p class="section-code">SHELF / 00</p>
+          <h2 id="spine-title">背表紙で見る上位店</h2>
+        </div>
+        <p class="hint">高さは面積に比例します。背表紙をクリックすると表の該当行へ移動します。</p>
+        <div class="spine-rail" id="spine-rail" role="list"></div>
+      </section>
+
+      <section class="ranking" id="ranking" aria-labelledby="rank-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-code">RANK / 01</p>
+            <h2 id="rank-title">売場面積ランキング</h2>
+          </div>
+          <p>初期表示は総売場（複合店の文具・カフェ等を含む公表面積）。書籍売場に切り替えると、内訳が分かる店だけが残ります。</p>
+        </div>
+
+        <div class="controls" role="group" aria-label="表示の切り替え">
+          <div class="seg" id="mode-seg">
+            <button type="button" data-mode="store" class="is-active" aria-pressed="true">総売場</button>
+            <button type="button" data-mode="books" aria-pressed="false">書籍売場</button>
+          </div>
+          <label>
+            地方
+            <select id="region-filter">
+              <option value="all">すべて</option>
+              <option value="北海道">北海道</option>
+              <option value="東北">東北</option>
+              <option value="関東">関東</option>
+              <option value="中部">中部</option>
+              <option value="近畿">近畿</option>
+              <option value="中国">中国</option>
+              <option value="四国">四国</option>
+              <option value="九州・沖縄">九州・沖縄</option>
+            </select>
+          </label>
+          <label>
+            チェーン
+            <select id="chain-filter">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+          <label>
+            業態
+            <select id="type-filter">
+              <option value="all">すべて</option>
+              <option value="bookstore">書店中心</option>
+              <option value="compound">複合店</option>
+            </select>
+          </label>
+          <label class="search-label">
+            店名
+            <input id="search" type="search" placeholder="池袋、札幌、紀伊國屋…" autocomplete="off" />
+          </label>
+        </div>
+
+        <p class="result-line" id="result-line">読み込み中…</p>
+
+        <div class="chart-card">
+          <h3 class="chart-heading">横棒グラフ</h3>
+          <div id="rank-chart-wrap"><canvas id="rank-chart"></canvas></div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="ledger">
+            <thead>
+              <tr>
+                <th scope="col">位</th>
+                <th scope="col">店舗</th>
+                <th scope="col">所在</th>
+                <th scope="col" class="num">面積 (㎡)</th>
+                <th scope="col" class="num">坪</th>
+                <th scope="col">業態</th>
+                <th scope="col">注記</th>
+              </tr>
+            </thead>
+            <tbody id="rank-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="charts" id="charts" aria-labelledby="chart-title">
+        <div class="section-heading">
+          <p class="section-code">CHART / 02</p>
+          <h2 id="chart-title">地方とチェーン</h2>
+        </div>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3 class="chart-heading">地方別の合計面積</h3>
+            <div class="chart-box"><canvas id="region-chart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-heading">チェーン別の合計面積</h3>
+            <div class="chart-box"><canvas id="chain-chart"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <p class="section-code">METHOD / 03</p>
+        <h2 id="method-title">このランキングが示すもの</h2>
+        <div class="method-grid">
+          <article>
+            <h3>総売場</h3>
+            <p>
+              各店が公表している売り場面積です。ジュンク堂のような純書店ではほぼ本の面積ですが、コーチャンフォーや大型蔦屋では文具・カフェ・食品が入ります。
+            </p>
+          </article>
+          <article>
+            <h3>書籍売場</h3>
+            <p>
+              書籍コーナーだけの面積が分かっている店に限定します。分からない複合店は除外するため、順位は入れ替わります。
+            </p>
+          </article>
+          <article>
+            <h3>縮小・移転</h3>
+            <p>
+              梅田店は開店時2,060坪ですが、現在はB1〜4F。福岡店はかつての2,060坪から900坪へ移転済み。未公表の現面積は推測しません。
+            </p>
+          </article>
+          <article>
+            <h3>収録の限界</h3>
+            <p>
+              全国の全店ではありません。公表値または信頼できる二次資料がある大型店を収録しています。1坪は3.305785㎡で換算します。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="sources" id="sources" aria-labelledby="sources-title">
+        <div class="section-heading">
+          <p class="section-code">SOURCES / 04</p>
+          <h2 id="sources-title">出典</h2>
+        </div>
+        <ul class="source-list">
+          <li>各店の公式案内、開店時プレス、honto店舗情報</li>
+          <li>丸善ジュンク堂書店「ジュンク堂書店」Wikipedia（店舗面積の沿革）</li>
+          <li>「コーチャンフォー」Wikipedia（新川通り店の売場内訳）</li>
+          <li>紀伊國屋書店 新宿本店 店舗案内</li>
+          <li>琉球新報（ジュンク堂那覇店の増床）</li>
+          <li>東洋経済オンライン（コーチャンフォー若葉台・つくば）</li>
+          <li>トップカルチャー（蔦屋書店フォレオ菖蒲店）</li>
+          <li>はこぶら（函館蔦屋書店の延床）</li>
+          <li>JAPAN WANDERER 大型店ランキング（二次集計の補完）</li>
+        </ul>
+        <p class="source-note">店舗ごとの出典は表の店名をクリックするとデータ上の URL を確認できます。詳細は GitHub の <code>data/bookstores.json</code> にあります。</p>
+      </section>
+
+      <section class="disclaimer" id="disclaimer" aria-labelledby="disclaimer-title">
+        <p class="section-code">NOTICE / 05</p>
+        <h2 id="disclaimer-title">免責事項</h2>
+        <ul class="disclaimer-list">
+          <li>面積は開店時・改装時の公表値や二次資料に基づく概数です。正確性・完全性・最新性は保証しません。</li>
+          <li>フロア縮小後に公式面積が更新されていない店舗は、古い公表値に注記を付けて掲載しています。</li>
+          <li>複合店の総売場には書籍以外の面積が含まれます。書籍売場の内訳が無い店は「書籍売場」表示から外れます。</li>
+          <li>本サイトは AI を用いて作成されており、誤りを含む可能性があります。指摘は GitHub Issues へお願いします。</li>
+        </ul>
+      </section>
+    </main>
+
+    <div class="store-dialog" id="store-dialog" hidden>
+      <div class="dialog-card" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <button type="button" class="dialog-close" id="dialog-close" aria-label="閉じる">×</button>
+        <p class="dialog-kicker" id="dialog-kicker"></p>
+        <h2 id="dialog-title"></h2>
+        <dl class="dialog-facts" id="dialog-facts"></dl>
+        <p class="dialog-note" id="dialog-note"></p>
+        <ul class="dialog-sources" id="dialog-sources"></ul>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>KKLab 書店面積台帳</p>
+      <p>比較・閲覧用の概観です。最終更新 2026年8月24日。</p>
+      <a href="https://github.com/katzkawai/kklab-bookstore-floor-area-ranking">GitHub ↗</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
