@@ -52,11 +52,11 @@ python3 -m http.server 8000
 
 ## 免責事項
 
-面積は公表値や二次資料に基づく概数であり、正確性・完全性・最新性は保証しません。本サイトは AI を用いて作成されており、誤りを含む可能性があります。指摘は [Issues](https://github.com/katzkawai/kklab-bookstore-floor-area-ranking/issues) へお願いします。
+面積は公表値や二次資料に基づく概数であり、正確性・完全性・最新性は保証しません。本サイトは Grok で作成されており、誤りを含む可能性があります。指摘は [Issues](https://github.com/katzkawai/kklab-bookstore-floor-area-ranking/issues) へお願いします。
 
 ## 制作
 
-本サイトは xAI の Grok を使用して作成しました。
+本サイト（コード・コンテンツ）は **Grok**（xAI）で作成しました。
 
 ## ライセンス
 
